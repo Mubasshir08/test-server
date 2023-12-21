@@ -14,7 +14,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Use middleware to enable CORS
-app.use(cors());
+// app.use(cors());
 
 app.get('/', (req,res)=> {
     res.send('server run successfully')
