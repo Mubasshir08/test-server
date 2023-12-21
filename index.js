@@ -40,7 +40,7 @@ app.post('/createTask' , async (req,res) => {
         res.send(createTask);
     }
     else{
-        console.log(ipExist)
+        res.send({taskName : ipExist})
     }
 });
 
