@@ -22,7 +22,7 @@ app.get('/', (req,res)=> {
 
 app.get('/tasks' , async (req,res) => {
     const tasks = await toDoModel.find();
-    res.send(req.ip);
+    res.send({tasks, ip: req.ip});
 });
 
 app.get('/test', (req,res) => {
