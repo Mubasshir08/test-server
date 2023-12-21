@@ -15,11 +15,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Use middleware to enable CORS
-app.use(cors({
-    origin: ["http://127.0.0.1:5173"],
-    methods: ["POST", "GET"],
-    credentials: true
-}));
+app.use(cors());
 
 app.get('/', (req,res)=> {
     res.send('server run successfully')
