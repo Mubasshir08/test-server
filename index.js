@@ -27,16 +27,21 @@ app.get('/tasks' , async (req,res) => {
 });
 
 app.get('/test', (req,res) => {
-    const ip = getClientIp(req)
+    const ip = getClientIp(req);
     res.send(ip)
 })
 
 app.post('/createTask' , async (req,res) => {
-    const createTask = await new toDoModel({
-        taskName : req.body.task
-}); 
-    await createTask.save();
-    res.send(createTask);
+    const ip = getClientIp(req);
+    const ipExist = toDoModel.find({clientIp : ip});
+    if(!ipExist){
+        const createTask = await new toDoModel({ taskName : req.body.task, clientIp : ip});       
+        await createTask.save();
+        res.send(createTask);
+    }
+    else{
+        console.log(ipExist)
+    }
 });
 
 app.post('/deleteTask' , async (req,res) => {
