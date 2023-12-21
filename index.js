@@ -25,7 +25,7 @@ app.get('/tasks' , async (req,res) => {
     res.send(tasks);
 });
 
-app.post('/test', (req,res) => {
+app.get('/test', (req,res) => {
     const ip = 
     req.headers['cf-connecting-ip'] ||  
     req.headers['x-real-ip'] ||
