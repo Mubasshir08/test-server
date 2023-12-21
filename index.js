@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const getClientIp = require("get-client-ip");
 const cors = require('cors');
 
 // connect to db
@@ -26,11 +27,7 @@ app.get('/tasks' , async (req,res) => {
 });
 
 app.get('/test', (req,res) => {
-    const ip = 
-    req.headers['cf-connecting-ip'] ||  
-    req.headers['x-real-ip'] ||
-    req.headers['x-forwarded-for'] ||
-    req.socket.remoteAddress || '';
+    const ip = getClientIp(req)
     res.send(ip)
 })
 
