@@ -15,7 +15,11 @@ const app = express();
 app.use(bodyParser.json());
 
 // Use middleware to enable CORS
-app.use(cors());
+app.use(cors({
+    origin: ["https://todo-list-henna-beta.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true
+}));
 
 app.get('/', (req,res)=> {
     res.send('server run successfully')
