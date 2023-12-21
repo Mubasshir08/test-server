@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 
 // Use middleware to enable CORS
 app.use(cors({
-    origin: ["https://todo-list-henna-beta.vercel.app"],
+    origin: ["http://localhost:5173"],
     methods: ["POST", "GET"],
     credentials: true
 }));
